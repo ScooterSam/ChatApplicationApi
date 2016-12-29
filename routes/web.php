@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'api'], function() {
+Route::group(['prefix' => 'api', 'middleware' => 'cors'], function() {
 
     Route::post('login', 'AuthController@login');
 

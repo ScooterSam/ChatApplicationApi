@@ -27,10 +27,10 @@ class ChatController extends Controller
     public function chats()
     {
 
+
         $chatsParticipated = Chat::with(['participants', 'messages'])->whereHas('participants', function($value) {
             $value->where(['user_id' => $this->user->id]);
         })
-            ->has('messages')
             ->get();
 
 
